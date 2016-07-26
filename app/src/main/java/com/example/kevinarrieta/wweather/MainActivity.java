@@ -10,18 +10,29 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.ArrayMap;
 import android.util.Log;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.example.kevinarrieta.wweather.service.ServiceHandler;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
+
+import org.json.JSONObject;
+
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener,
         GoogleApiClient.ConnectionCallbacks {
 
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
+
     private String TAG = "com.wweather";
+    private String API_KEY = "c76d2638abbfd2e0d9013002390fd2b0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +51,25 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     .addApi(LocationServices.API)
                     .build();
         }
+
+        ServiceHandler handler = new ServiceHandler();
+        //Map<String, Object> params = new ArrayMap<String, Object>();
+        //params.put("title", "foo");
+        //params.put("body", "bar");
+        //params.put("userId", "1");
+        handler.addHeader("Content-Type","Application/json");
+        handler.objectRequest("http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=" + API_KEY, Request.Method.GET,
+                null, JSONObject.class, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.i(TAG, response.toString());
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e(TAG, error.getMessage());
+                    }
+                });
     }
 
     @Override
