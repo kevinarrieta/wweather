@@ -51,6 +51,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     .addApi(LocationServices.API)
                     .build();
         }
+    }
+
+    private void getTheWeatherMan(double lat, double lon){
 
         ServiceHandler handler = new ServiceHandler();
         //Map<String, Object> params = new ArrayMap<String, Object>();
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         //params.put("body", "bar");
         //params.put("userId", "1");
         handler.addHeader("Content-Type","Application/json");
-        handler.objectRequest("http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=" + API_KEY, Request.Method.GET,
+        handler.objectRequest("http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=" + API_KEY, Request.Method.GET,
                 null, JSONObject.class, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -70,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                         Log.e(TAG, error.getMessage());
                     }
                 });
+
     }
 
     @Override
@@ -104,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 //mLatitudeText.setText(String.valueOf(mLastLocation.getLatitude()));
                 //mLongitudeText.setText(String.valueOf(mLastLocation.getLongitude()));
                 Log.i(TAG, String.valueOf(mLastLocation.getLatitude()) + String.valueOf(mLastLocation.getLongitude()));
+                getTheWeatherMan(mLastLocation.getLatitude(), mLastLocation.getLongitude());
             }
 
         }else{
