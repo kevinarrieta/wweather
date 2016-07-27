@@ -1,16 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:background="#00ff7f"
+    android:gravity="center_vertical"
     tools:context="com.example.kevinarrieta.wweather.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+        android:textColor="#fff"
+        android:textSize="40sp"
+        android:textAlignment="center"
+        android:padding="20dp"
+        android:text="Cartago"
+        android:id="@+id/city_view"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        >
+
+        <com.github.pwittchen.weathericonview.WeatherIconView
+            android:id="@+id/my_weather_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            custom:weatherIconResource="@string/wi_fahrenheit"
+            custom:weatherIconColor="#ffd700"
+            custom:weatherIconSize="30" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:text="18 C" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        >
+
+        <com.github.pwittchen.weathericonview.WeatherIconView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            custom:weatherIconResource="@string/wi_raindrop"
+            custom:weatherIconColor="#ffd700"
+            custom:weatherIconSize="30" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:text="Hmedad" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        >
+
+        <com.github.pwittchen.weathericonview.WeatherIconView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            custom:weatherIconResource="@string/wi_sunrise"
+            custom:weatherIconColor="#ffd700"
+            custom:weatherIconSize="30" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:text="Sunrise" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        >
+
+        <com.github.pwittchen.weathericonview.WeatherIconView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            custom:weatherIconResource="@string/wi_sunset"
+            custom:weatherIconColor="#ffd700"
+            custom:weatherIconSize="30" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:text="Sunset" />
+    </LinearLayout>
+
+</LinearLayout>

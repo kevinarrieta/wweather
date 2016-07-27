@@ -1,17 +1,16 @@
 package com.example.kevinarrieta.wweather;
 
-import android.*;
 import android.Manifest;
-import android.app.Activity;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.ArrayMap;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -22,8 +21,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 
 import org.json.JSONObject;
-
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener,
         GoogleApiClient.ConnectionCallbacks {
@@ -40,6 +37,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         setContentView(R.layout.activity_main);
 
         Log.i(TAG, "The awesome is coming...");
+
+
+        TextView tv1 = (TextView) findViewById(R.id.city_view);
+        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/Nobile-Regular.ttf");
+        tv1.setTypeface(face);
+        Log.i(TAG, tv1.getTypeface().toString() + "hhhhhh");
 
         // Create an instance of GoogleAPIClient.
 
@@ -80,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     protected void onStart() {
         Log.i(TAG, "on start");
         mGoogleApiClient.connect();
+
         super.onStart();
     }
 
