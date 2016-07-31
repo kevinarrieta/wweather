@@ -2,10 +2,15 @@ package com.example.kevinarrieta.wweather.base;
 
 import android.app.Application;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+import com.example.kevinarrieta.wweather.R;
 import com.example.kevinarrieta.wweather.utils.LruBitmapCache;
 
 /**

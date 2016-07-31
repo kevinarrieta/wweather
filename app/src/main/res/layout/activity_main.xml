@@ -8,231 +8,187 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-<<<<<<< HEAD
     tools:context="com.example.kevinarrieta.wweather.MainActivity"
     android:orientation="vertical"
-    android:background="@color/wallet_holo_blue_light">
+    android:background="#e5335c">
 
     <TextView
-        android:textSize="50dp"
-        android:textColor="#ffffff"
+        android:textSize="46sp"
+        android:textColor="#33e5bc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Weather App"
-        android:id="@+id/titulo"
+        android:id="@+id/title"
+        android:layout_weight="0.1"
         android:layout_gravity="center" />
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
-        <TextView
+        android:orientation="vertical"
+        android:layout_weight="0.1"
+        >
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Ciudad:"
-            android:id="@+id/titlecity" />
-
-        <TextView
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/city_input"
+            android:textColorHint="#fff"
+            android:textColor="#fff"
+            android:hint="Hey!, Search for a city, buddy!"
+            />
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text=""
-            android:id="@+id/city" />
+            android:layout_gravity="center"
+            android:id="@+id/searchBt"
+            android:clickable="true"
+            android:onClick="searchHandler"
+            android:text="SEARCH"
+            />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
+        android:layout_weight="0.1"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:padding="5dp">
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffd700"
+            android:textSize="36sp"
+            android:textAlignment="center"
+            android:text="Waiting for a city..."
+            android:id="@+id/city"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="0.3"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Temperatura:"
-            android:id="@+id/titletemp" />
-=======
-    android:orientation="vertical"
-    android:background="#00ff7f"
-    android:gravity="center_vertical"
-    tools:context="com.example.kevinarrieta.wweather.MainActivity">
+            android:gravity="center"
+            android:padding="5dp">
+            <com.github.pwittchen.weathericonview.WeatherIconView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                custom:weatherIconResource="@string/wi_fahrenheit"
+                custom:weatherIconColor="#33e5bc"
+                android:gravity="center"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                custom:weatherIconSize="40" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="0"
+                android:id="@+id/temp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp">
+            <com.github.pwittchen.weathericonview.WeatherIconView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                custom:weatherIconResource="@string/wi_raindrop"
+                custom:weatherIconColor="#33e5bc"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                custom:weatherIconSize="40"
+                android:paddingLeft="2.5dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="0"
+                android:textColor="#fff"
+                android:id="@+id/hume" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_weight="0.3"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:padding="2.5dp">
+            <com.github.pwittchen.weathericonview.WeatherIconView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                custom:weatherIconResource="@string/wi_sunrise"
+                custom:weatherIconColor="#33e5bc"
+                android:layout_gravity="center_vertical"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                custom:weatherIconSize="40" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="0"
+                android:textColor="#fff"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/sunrise" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:padding="2.5dp">
+            <com.github.pwittchen.weathericonview.WeatherIconView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                custom:weatherIconResource="@string/wi_sunset"
+                custom:weatherIconColor="#33e5bc"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="2.5dp"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                custom:weatherIconSize="40" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_gravity="center_vertical"
+                android:text="0"
+                android:textColor="#fff"
+                android:id="@+id/sunset" />
+        </LinearLayout>
+    </LinearLayout>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#fff"
-        android:textSize="40sp"
-        android:textAlignment="center"
-        android:padding="20dp"
-        android:text="Cartago"
-        android:id="@+id/city_view"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        >
-
-        <com.github.pwittchen.weathericonview.WeatherIconView
-            android:id="@+id/my_weather_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            custom:weatherIconResource="@string/wi_fahrenheit"
-            custom:weatherIconColor="#ffd700"
-            custom:weatherIconSize="30" />
->>>>>>> origin/master
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text=""
-            android:id="@+id/temp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Humedad:"
-            android:id="@+id/titlehume" />
-=======
-            android:textColor="#fff"
-            android:textSize="24sp"
-            android:textAlignment="center"
-            android:padding="10dp"
-            android:text="18 C" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        >
-
-        <com.github.pwittchen.weathericonview.WeatherIconView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            custom:weatherIconResource="@string/wi_raindrop"
-            custom:weatherIconColor="#ffd700"
-            custom:weatherIconSize="30" />
->>>>>>> origin/master
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text=""
-            android:id="@+id/hume" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Amanecer:"
-            android:id="@+id/titleamane" />
-=======
-            android:textColor="#fff"
-            android:textSize="24sp"
-            android:textAlignment="center"
-            android:padding="10dp"
-            android:text="Hmedad" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        >
-
-        <com.github.pwittchen.weathericonview.WeatherIconView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            custom:weatherIconResource="@string/wi_sunrise"
-            custom:weatherIconColor="#ffd700"
-            custom:weatherIconSize="30" />
->>>>>>> origin/master
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text=""
-            android:id="@+id/amane" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Atardecer:"
-            android:id="@+id/titleatarde" />
-=======
-            android:textColor="#fff"
-            android:textSize="24sp"
-            android:textAlignment="center"
-            android:padding="10dp"
-            android:text="Sunrise" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        >
-
-        <com.github.pwittchen.weathericonview.WeatherIconView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            custom:weatherIconResource="@string/wi_sunset"
-            custom:weatherIconColor="#ffd700"
-            custom:weatherIconSize="30" />
->>>>>>> origin/master
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text=""
-            android:id="@+id/atarde" />
-    </LinearLayout>
-
-    <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-
-    </ImageView>
-
-=======
-            android:textColor="#fff"
-            android:textSize="24sp"
-            android:textAlignment="center"
-            android:padding="10dp"
-            android:text="Sunset" />
-    </LinearLayout>
-
->>>>>>> origin/master
+        android:layout_height="wrap_content"
+        android:textColor="#ffd700"
+        android:layout_gravity="bottom"
+        android:text=""
+        android:layout_weight="0.1"
+        android:id="@+id/date1"
+        />
 </LinearLayout>
