@@ -163,11 +163,15 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                                 Date dSunset = new java.util.Date(response.getJSONObject("sys").getInt("sunset") * 1000);
                                 String fSunset = new SimpleDateFormat("hh:mm").format(dSunset);
 
+                                Calendar c = Calendar.getInstance();
+                                String fDate = new SimpleDateFormat("MMMM d, yyyy").format(c.getTime());
+
                                 city.setText(response.getString("name"));
                                 temp.setText(response.getJSONObject("main").getDouble("temp") + "");
                                 hume.setText(response.getJSONObject("main").getDouble("humidity") + "");
                                 sunrise.setText(fSunrise);
                                 sunset.setText(fSunset);
+                                date1.setText(fDate);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                                 Log.d(TAG, e.getMessage());
