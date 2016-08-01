@@ -35,7 +35,7 @@
             android:id="@+id/city_input"
             android:textColorHint="#fff"
             android:textColor="#fff"
-            android:hint="Hey!, Search for a city, buddy!"
+            android:hint="Ingresa la ciudad a buscar"
             />
         <Button
             android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
             android:id="@+id/searchBt"
             android:clickable="true"
             android:onClick="searchHandler"
-            android:text="SEARCH"
+            android:text="BUSCAR"
             />
     </LinearLayout>
 
@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_height="wrap_content"
-                custom:weatherIconResource="@string/wi_fahrenheit"
+                custom:weatherIconResource="@string/wi_celsius"
                 custom:weatherIconColor="#33e5bc"
                 android:gravity="center"
                 android:paddingRight="@dimen/activity_horizontal_margin"

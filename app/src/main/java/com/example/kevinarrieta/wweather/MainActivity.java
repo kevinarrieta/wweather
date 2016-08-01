@@ -35,6 +35,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import static java.lang.Double.parseDouble;
+
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener,
         GoogleApiClient.ConnectionCallbacks {
 
@@ -116,9 +118,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
                             Calendar c = Calendar.getInstance();
                             String fDate = new SimpleDateFormat("MMMM d, yyyy").format(c.getTime());
-
                             city.setText(response.getString("name"));
-                            temp.setText(response.getJSONObject("main").getDouble("temp") + "");
+                            temp.setText(response.getJSONObject("main").getDouble("temp")-273 + "");
                             hume.setText(response.getJSONObject("main").getDouble("humidity") + "");
                             sunrise.setText(fSunrise);
                             sunset.setText(fSunset);
@@ -167,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                                 String fDate = new SimpleDateFormat("MMMM d, yyyy").format(c.getTime());
 
                                 city.setText(response.getString("name"));
-                                temp.setText(response.getJSONObject("main").getDouble("temp") + "");
+                                temp.setText(response.getJSONObject("main").getDouble("temp") - 273 + "");
                                 hume.setText(response.getJSONObject("main").getDouble("humidity") + "");
                                 sunrise.setText(fSunrise);
                                 sunset.setText(fSunset);
@@ -200,7 +201,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     protected void onStart() {
         Log.i(TAG, "on start");
         mGoogleApiClient.connect();
-
         super.onStart();
     }
 
@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        Toast.makeText(this, "Ooops! Metimos la pata, la conexión no se pudo establecer...",  Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Ooops! la conexión no se pudo establecer...",  Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -241,6 +241,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     @Override
     public void onConnectionSuspended(int i) {
-        Toast.makeText(this, "Ooops! Metimos la pata, la conexión no se ha suspendido...",  Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Ooops! la conexión no se ha suspendido...",  Toast.LENGTH_SHORT).show();
     }
 }
